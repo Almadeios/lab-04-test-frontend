@@ -112,5 +112,23 @@ describe("TodoItem Component", () => {
   it("renderiza correctamente una tarea con caracteres especiales", () => {
     // TODO: Implementar el test siguiendo el patrón Prepare, Execute, Validate
     // Pista: Debes verificar que caracteres como &, <, >, ", etc. se muestren correctamente
+
+    // Prepare
+    const specialText = 'Tarea con caracteres: <>&"\'';
+    
+    // Execute
+    render(
+      <TodoItem
+        id={1}
+        text={specialText}
+        completed={false}
+        onToggle={() => {}}
+        onDelete={() => {}}
+      />
+    );
+
+    // Validate
+    expect(screen.getByText(specialText)).toBeInTheDocument();
+
   });
 });

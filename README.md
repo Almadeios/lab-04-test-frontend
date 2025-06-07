@@ -86,3 +86,5 @@ npm run test:watch
 - [Jest Documentation](https://jestjs.io/docs/getting-started)
 - [React Testing Library Documentation](https://testing-library.com/docs/react-testing-library/intro/)
 - [Jest DOM Testing Library](https://github.com/testing-library/jest-dom)
+
+INCLUIR SU HISTORIA DE USUARIO DE SU PROYECTO, PARA HAPPY PATH Y UNHAPPY PATH

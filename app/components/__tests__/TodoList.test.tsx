@@ -57,5 +57,42 @@ describe("TodoList Component", () => {
   it("pasa correctamente las funciones onToggle y onDelete a cada TodoItem", () => {
     // TODO: Implementar el test siguiendo el patrón Prepare, Execute, Validate
     // Pista: Deberás modificar el mock de TodoItem para verificar que recibe las props correctas
+
+    // Preparar
+    const todos = [
+      { id: 1, text: "uno", completed: false },
+      { id: 2, text: "dos", completed: true },
+    ];
+    const mockToggle = jest.fn();
+    const mockDelete = jest.fn();
+
+    // Mock del componente TodoItem para inspeccionar props
+    jest.mock("../TodoItem", () => ({
+      __esModule: true,
+      default: ({ id, onToggle, onDelete }: any) => {
+        onToggle(id);
+        onDelete(id);
+        return <div data-testid={`todo-item-${id}`} />;
+      },
+    }));
+
+    const { default: TodoList } = require("../TodoList");
+
+    // Ejecutar
+    render(
+      <TodoList
+        todos={todos}
+        onToggleTodo={mockToggle}
+        onDeleteTodo={mockDelete}
+      />
+    );
+
+    // Validar
+    expect(mockToggle).toHaveBeenCalledWith(1);
+    expect(mockToggle).toHaveBeenCalledWith(2);
+    expect(mockDelete).toHaveBeenCalledWith(1);
+    expect(mockDelete).toHaveBeenCalledWith(2);
+
+
   });
 });
