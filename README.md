@@ -88,3 +88,36 @@ npm run test:watch
 - [Jest DOM Testing Library](https://github.com/testing-library/jest-dom)
 
 INCLUIR SU HISTORIA DE USUARIO DE SU PROYECTO, PARA HAPPY PATH Y UNHAPPY PATH
+
+Historia de Usuario – Registro de Tarjeta
+Como usuario principal,
+quiero registrar una nueva tarjeta de crédito indicando su fecha de corte y fecha de pago,
+para poder gestionar mis gastos y pagos de forma ordenada dentro del sistema.
+
+## Happy Path 
+
+ Datos de entrada
+
+ alias: "Tarjeta BCP",
+ corte: 10, 
+ pago: 25	
+
+ Resultado esperado
+
+ "Registro exitoso"
+
+##  Unhappy Path
+	fecha_corte = 0 ->  Error: "La fecha de corte debe estar entre 1 y 31"
+    fecha_pago = 35 ->	Error: "La fecha de pago debe estar entre 1 y 31"
+    Campos vacíos ->	Errores de validación múltiples
+
+## Prueba de Caja Negra
+ 
+ Alias: cadena no vacía
+ Fecha de corte: válida entre 1 y 31
+ Fecha de pago: válida entre 1 y 31
+
+## Análisis de Valores Límite
+
+    fecha_corte = debe ser mayor igual a 1 y menor igual a 31 
+    fecha_pago =	debe ser mayor igual a 1 y menor igual a 31
